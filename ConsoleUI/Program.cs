@@ -12,37 +12,12 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            /*
-             * Todo: Follow all comments!! 
-             * Double click on the region (gray box) to view all comments
-             */
-
             #region Vehicles
 
-            /*
-             * Create an abstract class called Vehicle
-             * The vehicle class shall have three string properties: Year, Make, and Model
-             * Set the defaults of the properties to something generic in the Vehicle class
-             * Vehicle class shall have an abstract method called DriveAbstract with no implementation.
-             * Vehicle class shall have a virtual method called DriveVirtual with a base implementation.
-             */
-
-            /* 
-             * Now create 2 non-abstract classes: Car and Motorcycle, that inherit from Vehicle
-             * Add a distinct property in the 2 derived classes such as HasTrunk for Car and HasSideCart for Motorcycle
-             * Provide the implementations for the abstract methods
-             * Only in the Motorcycle class will you override the virtual drive method
-            */
-
-            // Create a list of Vehicle called vehicles
+            // List of Vehicle 
             List<Vehicle> vehicles = new List<Vehicle>();
-            /*
-             * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
-             * 
-             * Set the properties values with object initializer syntax
-             */
 
-            // Vehicle 1
+            // First vehicle
             Car car1 = new Car()
             {
                 Year = 2024,
@@ -53,7 +28,7 @@ namespace ConsoleUI
 
             vehicles.Add(car1);
 
-            // Vehicle 2
+            // Second vehicle 
             Motorcycle motorcycle1 = new Motorcycle()
             {
                 Year = 2024,
@@ -64,8 +39,8 @@ namespace ConsoleUI
 
             vehicles.Add(motorcycle1);
 
-            // Vehicle 3
-            Vehicle car2 = new Car()
+            // Third vehicle
+            Vehicle vehicle1 = new Car()
             {
                 Year = 2025,
                 Make = "Lamborghini",
@@ -73,23 +48,20 @@ namespace ConsoleUI
                 HasTrunk = true
             };
 
-            vehicles.Add(car2);
+            vehicles.Add(vehicle1);
 
-            // Vehicle 4
-            Vehicle motorcycle2 = new Motorcycle()
+            // Fourth vehicle
+            Vehicle vehicle2 = new Motorcycle()
             {
-                Year = 2024,
-                Make = "Suzuki",
-                Model = "GSX-8R",
+                Year = 1998, 
+                //Make property was made default in Vehicle class
+                Model = "Dream",
                 HasSideCart = false
             };
 
-            vehicles.Add(motorcycle2);
+            vehicles.Add(vehicle2);
 
-            /*
-             * Add the 4 vehicles to the list
-             * Using a foreach loop iterate through the list and display each of the properties
-             */
+            // Display properties
             foreach (var v in vehicles)
             {
                 Console.WriteLine(v.Make);
@@ -99,7 +71,7 @@ namespace ConsoleUI
                 Console.WriteLine("------------------------");
             }
 
-            // Call each of the drive methods for one car and one motorcycle
+            // Display drive methods for one car and one motorcycle
             car1.DriveAbstract();
             car1.DriveVirtual();
             Console.WriteLine("------------------------");
